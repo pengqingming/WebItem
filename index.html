@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web前台项目</title>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<link rel="stylesheet" type="text/css" href="styles/basic.css">
+	<script type="text/javascript">
+		function showItem(id){
+			var obj = document.getElementById(id);
+			obj.style.display="block";
+		}
+
+		function hiddenItem(id){
+			var obj = document.getElementById(id);
+			obj.style.display="none";
+		}
+		//banner图片自动播放功能
+		var arr=[];
+		arr[0] = "banner/banner1.jpg";
+		arr[1] = "banner/banner2.jpg";
+		arr[2] = "banner/banner3.jpg";
+		arr[3] = "banner/banner4.jpg";
+		var count=1;
+		// 切换图片的功能
+		function autoPlay(){
+			if(arr.length==count){
+				count=0;	
+			}
+			document.getElementById("banner1").src=arr[count];
+			count++;
+		}
+		var Timer = setInterval(autoPlay,2000);
+		 // 清空定时器
+		 function clearTimer(){
+		 	clearInterval(Timer);
+		 }
+		 //鼠标悬停时，播放指定的图片
+		 function showBannerById(num){
+		 	 clearTimer();
+		 	 var index = parseInt(num);
+		 	 document.getElementById("banner1").src=arr[index-1];
+		 	 count = index;
+		 }
+
+
+		 function btnMouseout(){
+		 	 Timer = setInterval(autoPlay,2000);
+		 }
+		 function changeHeight(){
+		 	var QQ = document.getElementById("ask");
+		 	
+		 	QQ.style.top = document.documentElement.scrollTop+document.body.scrollTop+200+"px";
+		 }
+		 window.onscroll = changeHeight;
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="">
+		<div id="ask">
+			<a href=""><img src="./images/service.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 顶部容器 -->
+	<div id="header">
+		<div id="logo " class="clearfix">
+			<div class="leftLogo">
+				<img src="icons/newZhiDa.png" height="45px" alt="中国科技智能家居有限公司">
+				<span class="fontLogo" >中国科技智能家居有限公司</span>
+			</div>
+			<div class="rightLogo">
+				<div class="fontMes"><a href="#">设为首页</a><a href="#">|联系我们</a></div>
+				<div class="imgSevice">
+					<img src="icons/top.jpg" alt="服务热线">
+				</div>
+			</div>
+		</div>
+		<div id="mainMenu">
+			<div class="menu clearfix">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li onmouseover="showItem('nav1')" onmouseout="hiddenItem('nav1')"><a href="#" >关于我们</a></li>
+					<li><a href="#">新闻咨询</a></li>
+					<li><a href="#">产品介绍</a></li>
+					<li><a href="#">解决方案</a></li>
+					<li><a href="#">体验中心</a></li>
+					<li><a href="#">成功案例</a></li>
+					<li><a href="#">加盟合作</a></li>
+					<li><a href="#">资料下载</a></li>
+					<li><a href="#">联系我们</a></li>
+				</ul>
+			</div>	
+			<div id="nav1">
+				<ul onmouseover="showItem('nav1')" onmouseout="hiddenItem('nav1')">
+					<li><a href="#">公司新闻</a></li>
+					<li><a href="#">国际新闻</a></li>
+					<li><a href="#">国内新闻</a></li>
+					<li><a href="#">乡村新闻</a></li>
+				</ul>
+			</div>
+		</div>	
+	</div>
+	<div class="banner">
+		<ul>
+			<li>
+				<a href="">
+					<img src="banner/banner1.jpg" alt="" id="banner1">
+				</a>
+			</li>
+		</ul>
+		<div id="spanBotton">
+			<span onmouseover="showBannerById(1)" onmouseout="btnMouseout()">1</span>
+			<span onmouseover="showBannerById(2)" onmouseout="btnMouseout()">2</span>
+			<span onmouseover="showBannerById(3)" onmouseout="btnMouseout()">3</span>
+			<span onmouseover="showBannerById(4)" onmouseout="btnMouseout()">4</span>
+		</div>
+	</div>
+	<div id="main">
+		<div id="main-top">
+			<div class="leftItem">
+				<div class="topTitle">
+					<span>新闻动态 news</span>
+				</div>
+				<div class="topList">
+					<div class="img"><img src="images/newsimg.jpg" alt=""></div>
+					<ul>
+						<li><a href="#">宜城市为主的居住环境</a></li>
+						<li><a href="#">宜城市为主的居住环境</a></li>
+						<li><a href="#">宜城市为主的居住环境</a></li>
+						<li><a href="#">宜城市为主的居住环境</a></li>
+					</ul>	
+				</div>
+			</div>
+			<div class="middleItem">
+				<div class="topTitle">
+					<span>公司动态 Company</span>
+				</div>
+				<div class="topList">
+					<div class="img"><img src="images/companyimg.jpg" alt=""></div>
+					<p>新智达有限公司位于成都市高新区--成都市软件产业园，新志达科技有限公司是以只能家居产品研发和销售为主的高科技企业，新志达的所有产品均通过国家权威部门的检测，高于国家对电工电子产品质量和安全的认证要求.......</p>
+				</div>
+			</div>
+			<div class="rightItem">
+				<div class="topTitle">
+					<span>联系我们 Contact Us</span>
+				</div>
+				<div class="topList">
+					<div class="img"><img src="./images/Contactimg.jpg" alt=""></div>
+					<div class="mes">
+						<p>公司名称：某某智能家居技术有限公司</p>
+						<p>公司地址：天府软件园</p>
+						<p>公司电话：400=123456</p>
+						<p>公司传真：400-123456</p>
+						<p>业务负责人：彭先生</p>
+						<p>公司网址：www.Inooc.com</p>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<div id="main-botton">
+			<div class="video">
+				<div class="topTitle">
+					<span>视频中心 Video</span>
+				</div>
+			</div>
+			<div id="product_display">
+				<div class="topTitle">
+					<span>产品展示 Product Display</span>
+				</div>
+			
+				<div id="demo">
+					<div id="indemo">
+						<div id="demo1">
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+							<a href="#"><img src="images/chanpin.jpg" alt=""></a>
+
+						</div>
+						<div id="demo2"></div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>	
+	</div>
+	<div id="footer">
+		<div>地址：成都市人民中路一段26号2楼 电话：028-569893,576-8132562 邮箱：575456454@qq.com；中国智能家居公司</div>
+		<div>Copyright&copy; 2015 All right reserved ICP 备案号 深1236785</div>
+	</div>
+</div>
+<script type="text/javascript">
+var speed=100;
+var tab=document.getElementById("demo");
+var tab1=document.getElementById("demo1");
+var tab2=document.getElementById("demo2");
+//用于让tab1的内容与tab2的内容一样
+tab2.innerHTML=tab1.innerHTML
+function Marquee(){
+//当元素要显示tab2的内容时，让他去显示tab1的内容，因为tab1与tab2的内容一样，就实现了滚动，因为速度太快了，所以你就堪称他是连续的了
+if(tab2.offsetWidth-tab.scrollLeft<=0){
+tab.scrollLeft-=tab1.offsetWidth
+}
+else{
+tab.scrollLeft++;
+}
+}
+var MyMar=setInterval(Marquee,speed);
+tab.onmouseover=function() {clearInterval(MyMar)};
+tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+</script>
+</body>
+
+</html>

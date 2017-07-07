@@ -1,0 +1,103 @@
+#main{
+	width: 960px;
+	height: 600px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+/*产品列表的左边部分*/
+.main-left{
+	width: 250px;
+	height: 600px;
+	float: left;
+	margin-right: 20px;
+	background: #dbdcdb;
+}
+.box h4{
+	height: 40px;
+	background: #560;
+	color: #fff;
+	font-size: 18px;
+	line-height: 40px;
+	text-indent: 20px;
+}
+
+.box1 li{
+	background: #dbdcdb;
+	line-height: 36px;
+	text-indent: 10px;
+	border-bottom: 1px dashed #bbb;
+}
+.box2 li{
+	line-height: 24px;
+	font-size: 14px;
+	background: #dbdcdb;
+	text-indent: 10px;
+}
+.box3 li{
+	line-height: 24px;
+	font-size: 14px;
+	background: #dbdcdb;
+	text-indent: 10px;
+}
+/*产品列表的右边部分*/
+.main-right{
+	float: left;
+	background: #fff;
+	height: 600px;
+}
+.topImg{
+	height: 40px;
+	padding-top: 20px;
+	background: #fff;
+	width: 690px;
+}
+.listName{
+	text-indent: 20px;
+	height: 30px;
+	line-height: 30px;
+	background: #666;
+}
+
+.proDisplay1 {
+	width: 660px;
+}
+.proDisplay1 li{
+	float: left;
+	padding: 3px;
+	border:1px solid #666;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.proDisplay1 li a{
+	width: 140px;
+	height: 100px;
+	display: inline-block;
+	text-align: center;
+}
+
+
+.newsList ul li{
+	position: relative;
+    font-size:14px; 
+    line-height: 30px;
+    color: #666;
+    height: 30px;
+    text-indent: 20px;
+}
+.newsList li a{
+	color: #666;
+}
+.newsList li span{
+	position: absolute;
+	right: 10px;
+}
+.page{
+	text-align: right;
+	margin-top: 40px;
+	margin-right: 20px;
+}
+.page a{
+	font-size: 12px;
+	border:1px solid #666;
+	padding:3px 6px;
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>web前台项目</title>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<link rel="stylesheet" type="text/css" href="styles/basic.css">
+	<link rel="stylesheet" type="text/css" href="styles/productList.css">
+	<script type="text/javascript">
+		function showItem(id){
+			var obj = document.getElementById(id);
+			obj.style.display="block";
+		}
+
+		function hiddenItem(id){
+			var obj = document.getElementById(id);
+			obj.style.display="none";
+		}
+		//banner图片自动播放功能
+		var arr=[];
+		arr[0] = "banner/banner1.jpg";
+		arr[1] = "banner/banner2.jpg";
+		arr[2] = "banner/banner3.jpg";
+		arr[3] = "banner/banner4.jpg";
+		var count=1;
+		// 切换图片的功能
+		function autoPlay(){
+			if(arr.length==count){
+				count=0;	
+			}
+			document.getElementById("banner1").src=arr[count];
+			count++;
+		}
+		var Timer = setInterval(autoPlay,2000);
+		 // 清空定时器
+		 function clearTimer(){
+		 	clearInterval(Timer);
+		 }
+		 //鼠标悬停时，播放指定的图片
+		 function showBannerById(num){
+		 	 clearTimer();
+		 	 var index = parseInt(num);
+		 	 document.getElementById("banner1").src=arr[index-1];
+		 	 count = index;
+		 }
+
+
+		 function btnMouseout(){
+		 	 Timer = setInterval(autoPlay,2000);
+		 }
+		 function changeHeight(){
+		 	var QQ = document.getElementById("ask");
+		 	
+		 	QQ.style.top = document.documentElement.scrollTop+document.body.scrollTop+200+"px";
+		 }
+		 window.onscroll = changeHeight;
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="">
+		<div id="ask">
+			<a href=""><img src="./images/service.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 顶部容器 -->
+	<div id="header">
+		<div id="logo " class="clearfix">
+			<div class="leftLogo">
+				<img src="icons/newZhiDa.png" height="45px" alt="中国科技智能家居有限公司">
+				<span class="fontLogo" >中国科技智能家居有限公司</span>
+			</div>
+			<div class="rightLogo">
+				<div class="fontMes"><a href="#">设为首页</a><a href="#">|联系我们</a></div>
+				<div class="imgSevice">
+					<img src="icons/top.jpg" alt="服务热线">
+				</div>
+			</div>
+		</div>
+		<div id="mainMenu">
+			<div class="menu clearfix">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li onmouseover="showItem('nav1')" onmouseout="hiddenItem('nav1')"><a href="#" >关于我们</a></li>
+					<li><a href="#">新闻咨询</a></li>
+					<li><a href="#">产品介绍</a></li>
+					<li><a href="#">解决方案</a></li>
+					<li><a href="#">体验中心</a></li>
+					<li><a href="#">成功案例</a></li>
+					<li><a href="#">加盟合作</a></li>
+					<li><a href="#">资料下载</a></li>
+					<li><a href="#">联系我们</a></li>
+				</ul>
+			</div>	
+			<div id="nav1">
+				<ul onmouseover="showItem('nav1')" onmouseout="hiddenItem('nav1')">
+					<li><a href="#">公司新闻</a></li>
+					<li><a href="#">国际新闻</a></li>
+					<li><a href="#">国内新闻</a></li>
+					<li><a href="#">乡村新闻</a></li>
+				</ul>
+			</div>
+		</div>	
+	</div>
+	<div class="banner">
+		<ul>
+			<li>
+				<a href="">
+					<img src="banner/banner1.jpg" alt="" id="banner1">
+				</a>
+			</li>
+		</ul>
+		<div id="spanBotton">
+			<span onmouseover="showBannerById(1)" onmouseout="btnMouseout()">1</span>
+			<span onmouseover="showBannerById(2)" onmouseout="btnMouseout()">2</span>
+			<span onmouseover="showBannerById(3)" onmouseout="btnMouseout()">3</span>
+			<span onmouseover="showBannerById(4)" onmouseout="btnMouseout()">4</span>
+		</div>
+	</div>
+	<div id="main">
+		<div class="main-left">
+			<div class="box box1">
+				<h4>企业导航</h4>
+				<ul>
+					<li><a href="#">公司简介</a></li>
+					<li><a href="#">服务流程</a></li>
+					<li><a href="#">服务承诺</a></li>
+					<li><a href="#">服务宗旨</a></li>
+				</ul>
+			</div>
+			<div class="box box2">
+				<h4>新闻动态</h4>
+				<ul>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+				</ul>
+			</div>
+			<div class="box box3">
+				<h4>产品分类</h4>
+				<ul>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					<li><a href="#">智能家居成为家具行业的新宠儿</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="main-right">
+			<div class="topImg"><img src="images/Product.jpg" alt=""></div>
+			<div class="listName">
+				<span>新闻列表</span>
+			</div>
+			<div class="newsList">
+				<ul>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+					<li><a href="">中国智能与中国电信合作推广智能家居</a><span>2017-6-21</span></li>
+				</ul>
+				<div class="page">
+					<a href="">&lt;</a> 
+					<a href="">1</a>
+					<a href="">2</a>
+					<a href="">3</a>
+					<a href="">4</a>
+					<a href="">5</a>
+					<a href="">...</a>
+					<a href="">200</a>
+					<a href="">&gt;</a>
+				</div>
+			</div>
+						
+		</div>
+	</div>
+	<div id="footer">
+		<div>地址：成都市人民中路一段26号2楼 电话：028-569893,576-8132562 邮箱：575456454@qq.com；中国智能家居公司</div>
+		<div>Copyright&copy; 2015 All right reserved ICP 备案号 深1236785</div>
+	</div>
+</div>
+
+</body>
+
+</html>
